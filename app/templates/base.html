@@ -72,5 +72,9 @@
 <!-- All scripts will go here -->
 {% block scripts %}
     {{  super() }}
+
+    <!-- Timestamp formatting -->
+    {{ moment.include_moment() }}
+    <!-- End of timestamp formatting -->
     
 {% endblock %}

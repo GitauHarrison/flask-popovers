@@ -3,6 +3,14 @@ from flask import render_template, url_for, redirect, request, flash
 from flask_login import current_user, login_required, login_user, logout_user
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, CommentForm
 from app.models import User, Post
+from datetime import datetime
+
+
+@app.before_request
+def before_request():
+    if current_user.is_authenticated:
+        current_user.last_seen = datetime.utcnow()
+        db.session.commit()
 
 
 @app.route('/', methods=['GET', 'POST'])
