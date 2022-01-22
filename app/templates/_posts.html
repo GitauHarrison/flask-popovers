@@ -4,9 +4,11 @@
             <img src=" {{ post.author.avatar(36) }} ">
         </td>
         <td>
-            <a href="{{ url_for('user', username=post.author.username) }}">
+            <span class="user_popup">
+                <a href="{{ url_for('user', username=post.author.username) }}">
                     {{ post.author.username }}
-            </a>
+                </a>
+            </span>
             said
             <span>
             {{ moment(post.timestamp).fromNow() }}:
