@@ -29,6 +29,8 @@ It is a fairly common feature in web applications to have links that open a popo
 
 ## Testing the Deployed Application
 
+* [Application on Heroku](https://flask-popover.herokuapp.com/login?next=%2Findex)
+
 You can use the following credentials to test the deployed application:
 * Username: harry
 * Password: 12345678
