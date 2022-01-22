@@ -23,6 +23,70 @@ It is a fairly common feature in web applications to have links that open a popo
 - Python-dotenv
 - Ajax requests
 
+## Contributors
+
+[![GitHub Contributors](https://img.shields.io/github/contributors/GitauHarrison/flask-popovers)](https://github.com/GitauHarrison/flask-popovers/graphs/contributors)
+
+## Testing the Deployed Application
+
+You can use the following credentials to test the deployed application:
+* Username: harry
+* Password: 12345678
+
+Alternatively, you can create your own user by clicking the [Register]() link. You will be redirected to the [Login page]() automatically where you can authenticate that user.
+
+## Testing the Application Locally
+
+1. Clone this repository:
+
+    ```python
+    $ git clone git@github.com:GitauHarrison/flask-popovers.git
+    ```
+
+2. Change into the directory:
+
+    ```python
+    $ cd flask-popovers
+    ```
+
+3. Create and activate a virtual environment:
+
+    ```python
+    $ virtualenv venv
+    $ source venv/bin/activate
+
+    # Alternatively, you can use virtualenvwrapper
+    $ mkvirtualenv venv
+    ```
+
+    * Virtualenvwrapper is a wrapper around virtualenv that makes it easier to use virtualenvs. `mkvirtualenv` not only creates but also activates a virtual enviroment for you. Learn more about virtualenvwrapper [here](https://github.com/GitauHarrison/notes/blob/master/virtualenvwrapper_setup.md).<br><br>
+
+4. Install dependencies:
+    
+        ```python
+        (venv)$ pip install -r requirements.txt
+        ```
+
+5. Add environment variables as seen in the `.env-template`:
+    
+        ```python
+        (venv)$ cp .env-template .env
+        ```
+
+    * You can get a random value for your `SECRET_KEY` by running `python -c "import os; print os.urandom(24)"` in your terminal.<br><br>
+
+5. Run the application:
+
+    ```python
+    (venv)$ flask run
+    ```
+
+6. Open the application in your favourte browser by copying and pasting the link below:
+   * http://localhost:5000<br><br>
+
+7. Feel free to create a new user and see the popovers in action. You can do so by [registering a user](http://127.0.0.1:5000/register) then [logging in](http://127.0.0.1:5000/login).
+
+
 ## How To
 
 ### Select Element
