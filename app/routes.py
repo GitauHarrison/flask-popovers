@@ -2,7 +2,7 @@ from app import app, db
 from flask import render_template, url_for, redirect, request, flash
 from flask_login import current_user, login_required, login_user, logout_user
 from app.forms import LoginForm, RegistrationForm, EditProfileForm, CommentForm
-from app.models import User
+from app.models import User, Post
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -10,11 +10,27 @@ from app.models import User
 @login_required
 def index():
     form = CommentForm()
+    if form.validate_on_submit():
+        post = Post(body=form.body.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your comment has been published.')
+        return redirect(url_for('index'))
+    page = request.args.get('page', 1, type=int)
+    posts = Post.query.order_by(Post.timestamp.desc()).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('index', page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('index', page=posts.prev_num) \
+        if posts.has_prev else None
     return render_template(
         'index.html',
         title='Posts',
-        form=form
-    )
+        form=form,
+        next_url=next_url,
+        prev_url=prev_url,
+        posts=posts.items
+        )
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -67,10 +83,22 @@ def register():
 @app.route('/user/<username>')
 @login_required
 def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    page = request.args.get('page', 1, type=int)
+    posts = user.posts.order_by(Post.timestamp.desc()).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+    next_url = url_for('user', username=user.username, page=posts.next_num) \
+        if posts.has_next else None
+    prev_url = url_for('index', page=posts.prev_num) \
+        if posts.has_prev else None
     return render_template(
         'user.html',
-        title='User',
+        title='User Profile',
         username=username,
+        user=user,
+        next_url=next_url,
+        prev_url=prev_url,
+        posts=posts.items
     )
 
 

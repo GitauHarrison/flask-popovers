@@ -2,17 +2,44 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_context %}
-<div class="row">
-    <div class="col-md-12 text-center">
+<div class="row text-center">
+    <div class="col-md-12">
         <h1>{{title}}</h1>
     </div>  
 </div>
+
+<!-- Post form -->
 <div class="row">
     <div class="col-sm-12 my-form">
         {{ wtf.quick_form(form) }}
     </div>
-    <div class="col-sm-4">
-        <!-- Empty column -->
+</div><br>
+<!-- End of posts form -->
+
+<!-- Posts -->
+<div class="row">
+    <div class="col-sm-12">
+        {% for post in posts %}
+            {% include '_posts.html' %}
+        {% endfor %}
     </div>
 </div>
+<!-- End of posts -->
+
+<!-- Pagination Links -->
+<nav aria-label="...">
+    <ul class="pager">
+        <li class="previous{% if not prev_url %} disabled{% endif %}">
+            <a href="{{ prev_url or '#' }}">
+                <span aria-hidden="true">&larr;</span> Newer Comments
+            </a>
+        </li>
+        <li class="next{% if not next_url %} disabled{% endif %}">
+            <a href="{{ next_url or '#' }}">
+                Older Comments <span aria-hidden="true">&rarr;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<!-- End of post pagination -->
 {% endblock %}

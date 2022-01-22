@@ -1,20 +1,64 @@
 {% extends 'base.html' %}
-{% import 'bootstrap/wtf.html' as wtf %}
 
 {% block app_context %}
 <div class="row">
-    <div class="col-md-12 text-center">
+    <div class="col-md-12">
         <h1>{{title}}</h1>
     </div>  
 </div>
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-3 text-center">
         <p>
-            Username: {{ username }}
+            <img src="{{ user.avatar(70) }}" alt="Avatar" class="img-responsive">
         </p>
+    </div>
+    <div class="col-sm-9">
         <p>
-            Email: harry@email.com
+            Username: {{ user.username }}
+        </p>
+        {% if user == current_user %}
+            <p>
+                <a href="{{ url_for('edit_profile') }}">Edit profile</a>
+            </p>
+        {% endif %}
+        {% if user.about_me %}
+        <p>
+            <span>
+                {{ user.about_me }}
+            </span>
+        </p>
+        {% endif %}
+        <p>
+            <span>
+                {{ moment(user.last_seen).format('LLL') }}
+            </span>
         </p>
     </div>
 </div>
+<!-- Posts -->
+<div class="row">
+    <div class="col-sm-12">
+        {% for post in posts %}
+            {% include '_posts.html' %}
+        {% endfor %}
+    </div>
+</div>
+<!-- End of posts -->
+
+<!-- Pagination Links -->
+<nav aria-label="...">
+    <ul class="pager">
+        <li class="previous{% if not prev_url %} disabled{% endif %}">
+            <a href="{{ prev_url or '#' }}">
+                <span aria-hidden="true">&larr;</span> Newer Comments
+            </a>
+        </li>
+        <li class="next{% if not next_url %} disabled{% endif %}">
+            <a href="{{ next_url or '#' }}">
+                Older Comments <span aria-hidden="true">&rarr;</span>
+            </a>
+        </li>
+    </ul>
+</nav>
+<!-- End of post pagination -->
 {% endblock %}
