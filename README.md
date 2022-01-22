@@ -35,7 +35,7 @@ You can use the following credentials to test the deployed application:
 * Username: harry
 * Password: 12345678
 
-Alternatively, you can create your own user by clicking the [Register]() link. You will be redirected to the [Login page]() automatically where you can authenticate that user.
+Alternatively, you can create your own user by clicking the [Register](https://flask-popover.herokuapp.com/register) link. You will be redirected to the [Login page](https://flask-popover.herokuapp.com/login) automatically where you can authenticate that user.
 
 ## Testing the Application Locally
 
