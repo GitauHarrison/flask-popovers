@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_context %}
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h1>{{title}}</h1>
+    </div>  
+</div>
+<div class="row">
+    <div class="col-sm-12">
+        <p>
+            Username: {{ username }}
+        </p>
+        <p>
+            Email: harry@email.com
+        </p>
+    </div>
+</div>
+{% endblock %}
