@@ -17,4 +17,4 @@ login.login_view = 'login'
 moment = Moment(app)
 migrate = Migrate(app, db, render_as_batch=True)
 
-from app import routes, errors
+from app import routes, errors, models
