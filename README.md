@@ -229,4 +229,5 @@ function(event) {
 
 ## Reference
 
-If you would like to see how the application above has been built, you can look at this [flask popover](https://github.com/GitauHarrison/notes/blob/master/flask_popover.md) tutorial.
+* If you would like to see how the application above has been built from scratch, you can look at this [flask popover](https://github.com/GitauHarrison/notes/blob/master/flask_popover.md) tutorial.
+* If you prefer to only see how this feature can be implemented, look at this [flask popover section](https://github.com/GitauHarrison/notes/blob/master/flask_popover/popover.md)
