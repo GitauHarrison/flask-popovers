@@ -231,3 +231,7 @@ function(event) {
 
 * If you would like to see how the application above has been built from scratch, you can look at this [flask popover](https://github.com/GitauHarrison/notes/blob/master/flask_popover.md) tutorial.
 * If you prefer to only see how this feature can be implemented, look at this [flask popover section](https://github.com/GitauHarrison/notes/blob/master/flask_popover/popover.md)
+
+## Going Further
+
+If you would like to add private messaging and user notifications to your flask application, you can look at the [user notifications in flask](https://github.com/GitauHarrison/user-notifications-in-flask) repository to learn more.
