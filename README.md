@@ -44,12 +44,14 @@ Alternatively, you can create your own user by clicking the [Register](https://f
     ```python
     $ git clone git@github.com:GitauHarrison/flask-popovers.git
     ```
+<br>
 
 2. Change into the directory:
 
     ```python
     $ cd flask-popovers
     ```
+<br>
 
 3. Create and activate a virtual environment:
 
@@ -61,30 +63,35 @@ Alternatively, you can create your own user by clicking the [Register](https://f
     $ mkvirtualenv venv
     ```
 
-    * Virtualenvwrapper is a wrapper around virtualenv that makes it easier to use virtualenvs. `mkvirtualenv` not only creates but also activates a virtual enviroment for you. Learn more about virtualenvwrapper [here](https://github.com/GitauHarrison/notes/blob/master/virtualenvwrapper_setup.md).<br><br>
+    * Virtualenvwrapper is a wrapper around virtualenv that makes it easier to use virtualenvs. `mkvirtualenv` not only creates but also activates a virtual enviroment for you. Learn more about virtualenvwrapper [here](https://github.com/GitauHarrison/notes/blob/master/virtualenvwrapper_setup.md).
+<br>
 
 4. Install dependencies:
     
-        ```python
-        (venv)$ pip install -r requirements.txt
-        ```
+    ```python
+    (venv)$ pip install -r requirements.txt
+    ```
+<br>
 
 5. Add environment variables as seen in the `.env-template`:
     
-        ```python
-        (venv)$ cp .env-template .env
-        ```
+    ```python
+    (venv)$ cp .env-template .env
+    ```
 
-    * You can get a random value for your `SECRET_KEY` by running `python -c "import os; print os.urandom(24)"` in your terminal.<br><br>
+    * You can get a random value for your `SECRET_KEY` by running `python -c "import os; print os.urandom(24)"` in your terminal.
+<br>
 
 5. Run the application:
 
     ```python
     (venv)$ flask run
     ```
+<br>
 
 6. Open the application in your favourte browser by copying and pasting the link below:
-   * http://localhost:5000<br><br>
+   * http://localhost:5000
+<br>
 
 7. Feel free to create a new user and see the popovers in action. You can do so by [registering a user](http://127.0.0.1:5000/register) then [logging in](http://127.0.0.1:5000/login).
 
